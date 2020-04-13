@@ -47,7 +47,7 @@ void Server::do_accept() {
       std::string word = available_words_[rand() % available_words_.size()];
       connection_manager_.start(
           std::make_shared<Connection>(std::move(socket), connection_manager_,
-                                       word.size(), GetNumTries(word.size())));
+                                       word, GetNumTries(word.size())));
     }
 
     do_accept();
